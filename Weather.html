@@ -14,14 +14,14 @@
         </div>
     </header>
    
-    <section class="banner bg-[url('./Images/MoutainBg.jpg')] lg:py-54 md:py-48 pt-32 pb-24 md:py-32 px-8 bg-no-repeat bg-cover h-[800px]">
-        <div class="max-w-[400px] mx-auto text-white">
-            <div class="pw-form flex">
+    <section class="bg-[url('./Images/MoutainBg.jpg')] lg:py-54 md:py-48 pt-32 pb-24 md:py-32 px-8 bg-no-repeat bg-cover h-[800px]">
+        <div class="max-w-[800px] mx-auto text-white">
+            <div class="pw-form  max-w-[400px] flex justify-center m-auto">
                 <div id="pass" class="bg-[#dee2e6bf] w-[33px] h-[30px] flex items-center justify-center"><i class="fa fa-search" style="color: black;"></i></div>
                 <input id="searchBar" type="text" placeholder="Enter Place" class=" w-full text-black" />
                 <div id="suggestions" class="max-h-[150px] text-black  w-[21.5%]  overflow-y-auto mt-8 bg-white absolute max-w-[22%] z-1000 hover:cursor-pointer"></div>
             </div>
-            <div class="max-w-[1200px] mx-auto p-10 mt-10 bg-gray-500/60 text-white rounded-2xl" id="showTemperature" style="display: none;">
+            <div class="max-w-[400px] mx-auto p-10 mt-10 bg-gray-500/60 text-white rounded-2xl" id="showTemperature" style="display: none;" >
                 <div class="md:max-w-[500px] w-100">
                     <p class="md:text-[30px] text-[20px] " id="selected-location"></p>
                     <p class="md:text-[18px] text-[15px] " id="selected-country"></p>
@@ -32,6 +32,8 @@
                                
                 </div>
             </div>
+            <div id="weeklyForecast" class="flex justify-between bg-gray-500/60 p-10 rounded-2xl  mt-[20px]" style="display: none;"></div> 
+           
            </div>
       
     </section>

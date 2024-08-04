@@ -116,6 +116,8 @@ const selectedLocation = document.getElementById('selected-location');
 const selectedCountry = document.getElementById('selected-country');
 const temperature = document.getElementById('temperature');
 const weatherIcon = document.getElementById('weathericon');
+const weeklyForecastContainer = document.getElementById('weeklyForecast');
+
 // Event listener for input changes
 searchBar.addEventListener('input', function() {
     const input = searchBar.value.toLowerCase();
@@ -144,6 +146,7 @@ searchBar.addEventListener('input', function() {
             suggestionItem.addEventListener('click', function() {
                 searchBar.value = place.location;
                 document.getElementById('showTemperature').style.display='block';
+                weeklyForecastContainer.style.display='flex';
               selectedLocation.innerHTML = place.location;
               selectedCountry.innerHTML = place.country;
               temperature.innerHTML=place.forecast[currentDay].temperature;
@@ -152,11 +155,40 @@ searchBar.addEventListener('input', function() {
               suggestions.innerHTML = ''; 
               searchBar.value='';
                 ShowWeatherIcon(weather);
+                displayWeeklyForecast(place.forecast);
+
             });
             suggestions.appendChild(suggestionItem);
         });
     }
 });
+
+function displayWeeklyForecast(forecast) {
+    
+    weeklyForecastContainer.innerHTML = ''; // Clear previous forecast
+
+    daysOfWeek.forEach((day, index) => {
+        const dayCard = document.createElement('div');
+        dayCard.classList.add('day-card');
+        dayCard.innerHTML = `
+            <p>${day.charAt(0).toUpperCase() + day.slice(1)}</p>
+            <div>${forecast[day].temperature}</div>
+            <div>${getWeatherIcon(forecast[day].weather)}</div>
+        `;
+        weeklyForecastContainer.appendChild(dayCard);
+    });
+}
+
+function getWeatherIcon(weather) {
+    switch (weather) {
+        case "Cloudy":
+            return '<i class="fa fa-cloud fa-lg"></i>';
+        case "Rainy":
+            return '<img src="./Images/rainy.png" alt="Rainy Icon" style="width: 24px;"/>';
+        case "Sunny":
+            return '<i class="fa fa-sun-o fa-lg"></i>';
+    }
+}
 
 function ShowWeatherIcon(weather)
 {
