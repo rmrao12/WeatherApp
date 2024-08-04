@@ -163,13 +163,15 @@ searchBar.addEventListener('input', function() {
     }
 });
 
+
+//to display weekly weather starting from current day to end
 function displayWeeklyForecast(forecast) {
     
     weeklyForecastContainer.innerHTML = ''; // Clear previous forecast
 
     daysOfWeek.forEach((day, index) => {
         const dayCard = document.createElement('div');
-        dayCard.classList.add('day-card');
+       
         dayCard.innerHTML = `
             <p>${day.charAt(0).toUpperCase() + day.slice(1)}</p>
             <div>${forecast[day].temperature}</div>
@@ -179,6 +181,8 @@ function displayWeeklyForecast(forecast) {
     });
 }
 
+
+// simple icon display in daily panel
 function getWeatherIcon(weather) {
     switch (weather) {
         case "Cloudy":
@@ -190,6 +194,8 @@ function getWeatherIcon(weather) {
     }
 }
 
+
+//show icon in today weather
 function ShowWeatherIcon(weather)
 {
     let iconHtml
