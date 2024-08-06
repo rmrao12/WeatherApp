@@ -70,6 +70,7 @@ function getWeatherData(loc) {
     
     const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${loc}&units=metric&appid=${apiKey}`; //used 5 days data key becuase 7 days api key was not free 
 
+    
     fetch(apiUrl)
         .then(response => {
             if (!response.ok) {
